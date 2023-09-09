@@ -19,27 +19,7 @@ func worker(id int, checkpoint chan bool, resume chan bool, wg *sync.WaitGroup) 
 }
 
 func main() {
-	/*
-		Output:
-		Worker 4 starting
-		Worker 0 starting
-		Worker 0 waiting for checkpoint
-		Worker 1 starting
-		Worker 2 starting
-		Worker 3 starting
-		Worker 1 waiting for checkpoint
-		Worker 2 waiting for checkpoint
-		Worker 3 waiting for checkpoint
-		Worker 4 waiting for checkpoint
-		All workers reached the checkpoint
-		Resuming all workers
-		Worker 1 resuming
-		Worker 4 resuming
-		Worker 2 resuming
-		Worker 3 resuming
-		Worker 0 resuming
-		All workers completed their work
-	*/
+
 	numWorkers := 5
 	checkpoint := make(chan bool)
 	resume := make(chan bool)
@@ -67,3 +47,26 @@ func main() {
 	wg.Wait()
 	fmt.Println("All workers completed their work")
 }
+
+
+	/*
+		Output:
+		Worker 4 starting
+		Worker 0 starting
+		Worker 0 waiting for checkpoint
+		Worker 1 starting
+		Worker 2 starting
+		Worker 3 starting
+		Worker 1 waiting for checkpoint
+		Worker 2 waiting for checkpoint
+		Worker 3 waiting for checkpoint
+		Worker 4 waiting for checkpoint
+		All workers reached the checkpoint
+		Resuming all workers
+		Worker 1 resuming
+		Worker 4 resuming
+		Worker 2 resuming
+		Worker 3 resuming
+		Worker 0 resuming
+		All workers completed their work
+	*/
