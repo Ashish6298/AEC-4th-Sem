@@ -1,46 +1,34 @@
 package main
 
-import (
-	"fmt"
-	"strconv"
-)
+import "fmt"
 
-func isPalidrome(n int) bool {
-	str := strconv.Itoa(n)
-	length := len(str)
-	for i := 0; i < length/2; i++ {
-		if str[i] != str[length-i-1] {
-			return false
-		}
+func isPalindrome(n int) bool {
+    original := n
+    reverse := 0
 
-	}
-	return true
-}
-func largestPalidromeProduct() (int, int, int) {
-	largestPalidrome := 0
-	var multiplicand1, multiplicand2 int
-	for i := 999; i >= 100; i-- {
-		for j := i; j >= 100; j-- {
-			product := i * j
-			if product < largestPalidrome {
-				break
-			}
-			if isPalidrome(product) && product > largestPalidrome {
-				largestPalidrome = product
-				multiplicand1 = i
-				multiplicand2 = j
+    for n > 0 {
+        remainder := n % 10
+        reverse = reverse*10 + remainder
+        n = n / 10
+    }
 
-			}
-
-		}
-
-	}
-	return largestPalidrome, multiplicand1, multiplicand2
+    return original == reverse
 }
 
 func main() {
-	result, multiplicand1, multiplicand2 := largestPalidromeProduct()
-	fmt.Printf("The largest palidrome product is : %d\n", result)
+    largestPalindrome := 0
 
-	fmt.Printf("The multiplicands are :%d and %d\n", multiplicand1, multiplicand2)
+    for i := 100; i <= 999; i++ {
+        for j := 100; j <= 999; j++ {
+            product := i * j
+            if isPalindrome(product) && product > largestPalindrome {
+                largestPalindrome = product
+            }
+        }
+    }
+
+    fmt.Println("The largest palindrome product of two three-digit numbers is:", largestPalindrome)
 }
+
+
+// output 906609
