@@ -15,16 +15,7 @@ type Post struct {
 }
 
 func main() {
-	/* 5a
-	Output:
-	User Id: 1
-	Id: 1
-	Title: sunt aut facere repellat provident occaecati excepturi optio reprehenderit
-	Body: quia et suscipit
-	suscipit recusandae consequuntur expedita et cum
-	reprehenderit molestiae ut ut quas totam
-	nostrum rerum est autem sunt rem eveniet architecto
-	*/
+	
 
 	// URL to send the GET request
 	url := "https://jsonplaceholder.typicode.com/posts/1"
@@ -58,3 +49,13 @@ func main() {
 	fmt.Printf("Title: %s\n", post.Title)
 	fmt.Printf("Body: %s\n", post.Body)
 }
+/* 5a
+	Output:
+	User Id: 1
+	Id: 1
+	Title: sunt aut facere repellat provident occaecati excepturi optio reprehenderit
+	Body: quia et suscipit
+	suscipit recusandae consequuntur expedita et cum
+	reprehenderit molestiae ut ut quas totam
+	nostrum rerum est autem sunt rem eveniet architecto
+	*/
