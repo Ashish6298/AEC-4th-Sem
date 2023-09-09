@@ -31,14 +31,16 @@ func PrintArea(s Shape) {
 }
 
 func main() {
-	/*
-		Output:
-		Area : 78.54
-		Area : 24.00
-	*/
+	
 	circle := Circle{radius: 5}
 	Rectangle := Rectangle{width: 4, height: 6}
 
 	PrintArea(circle)
 	PrintArea(Rectangle)
 }
+
+/*
+		Output:
+		Area : 78.54
+		Area : 24.00
+	*/
